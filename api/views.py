@@ -9,6 +9,7 @@ class ItemList(generics.ListCreateAPIView):
     def get_queryset(self):
         queryset = Item.objects.all()
         location = self.request.query_params.get('location')
+        print(location)
         if location is not None:
             queryset = queryset.filter(itemLocation=location)
         return queryset
